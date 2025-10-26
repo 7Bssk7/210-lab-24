@@ -1,4 +1,4 @@
-// COMSC-210 | Lab 23 | Arkhip Finski
+// COMSC-210 | Lab 24 | Arkhip Finski
 // IDE used: Visual Studio
 #include <iostream>
 #include <fstream>
