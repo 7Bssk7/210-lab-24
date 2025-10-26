@@ -100,8 +100,9 @@ void delete_goat(list<Goat>& trip){
     advance(it, c-1);
     trip.erase(it);
 
-    cout << "After you deleted the goat:" << endl;
+    cout << "After you have deleted the goat from the list" << endl;
     display_trip(trip);
+    
 }
 
 void display_trip(list<Goat> trip){
