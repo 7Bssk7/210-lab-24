@@ -41,6 +41,7 @@ int main() {
         else{
 
         }
+        choice = main_menu();
 
     }
 
@@ -72,7 +73,7 @@ int main_menu(){
 }
 
 void add_goat(list<Goat>& trip, string n[], string c[]){
-    Goat temp(n[rand() % SZ_NAMES-1], (rand() % MAX_AGE),c[rand() % SZ_COLORS]);
+    Goat temp(n[rand() % SZ_NAMES], (rand() % MAX_AGE),c[rand() % SZ_COLORS]);
     trip.push_back(temp);
 
 }
