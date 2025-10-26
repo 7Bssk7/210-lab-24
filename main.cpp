@@ -32,7 +32,7 @@ int main() {
     while (fin1 >> colors[i++]);
     fin1.close();
 
-    //List to store Goat objects
+    //Set to store Goat objects
     set<Goat> t;
 
     //Main menu loop
@@ -91,27 +91,27 @@ int main_menu(){
     return c;
 }
 
-// add_goat() creates a new Goat with random (names,color and age) and adds it to the list
-// arguments: list of Goat objects (by reference), arrays of names and colors
+// add_goat() creates a new Goat with random (names,color and age) and adds it to the set
+// arguments: set of Goat objects (by reference), arrays of names and colors
 // returns: none
 void add_goat(set<Goat>& trip, string n[], string c[]){
     // Creates goat with random name,age and color 
     Goat temp(n[rand() % SZ_NAMES], (rand() % (MAX_AGE+1)),c[rand() % SZ_COLORS]);
-    // Outputs what was added to the list
+    // Outputs what was added to the set
     cout << "You added: " << temp.get_name() << "(" << temp.get_age() << ", " << temp.get_color() << ")" << endl;
     cout << endl;
 
-    // Adds goat to the list
+    // Adds goat to the set
     trip.insert(temp); 
 
 }
 
-// delete_goat() deletes a goat from the list based on user selection
-// arguments: list of Goat objects (by reference)
+// delete_goat() deletes a goat from the set based on user selection
+// arguments: set of Goat objects (by reference)
 // returns: none
 void delete_goat(set<Goat>& trip){
-    if(trip.empty()){ // checks if list is empty
-        cout << "Sorry, the list is empty." << endl;
+    if(trip.empty()){ // checks if set is empty
+        cout << "Sorry, the set is empty." << endl;
         cout << endl;
         return;
     }
@@ -122,21 +122,21 @@ void delete_goat(set<Goat>& trip){
     // Advance iterator to selected goat
     auto it = trip.begin();
     advance(it, c-1);
-    // Deletes selected goat from the list
+    // Deletes selected goat from the set
     trip.erase(it);
 
-    // Outputs updates list
-    cout << "After you have deleted the goat from the list" << endl;
+    // Outputs updates set
+    cout << "After you have deleted the goat from the set" << endl;
     display_trip(trip);
 
 }
 
-// select_goat() asks user to choose a goat from the list
-// arguments: list of Goat objects (by reference)
-// returns: integer index of selected goat in the list
+// select_goat() asks user to choose a goat from the set
+// arguments: set of Goat objects (by reference)
+// returns: integer index of selected goat in the set
 int select_goat(set<Goat>& trip){
     int choice; 
-    // Outputs current list
+    // Outputs current set
     display_trip(trip);
     // Asks user to select the goat they want to delete
     cout << "Which of the goats would you like to remove?" << endl;
@@ -156,16 +156,16 @@ int select_goat(set<Goat>& trip){
     return choice;
 }
 
-// display_trip() outputs all goats in the list
-// arguments: list of Goat objects (by value)
+// display_trip() outputs all goats in the set
+// arguments: set of Goat objects (by value)
 // returns: none
 void display_trip(set<Goat> trip){
-    int count = 1; // counts number of items in the list
+    int count = 1; // counts number of items in the set
     if(trip.empty()){
-        cout << "Sorry, the list is empty." << endl;
+        cout << "Sorry, the set is empty." << endl;
     }
-    else{ // Outputs every goat in the list with index 
-        cout << "Here is the list of all goats from the trip:" << endl;
+    else{ // Outputs every goat in the set with index 
+        cout << "Here is the set of all goats from the trip:" << endl;
         for(auto g : trip){
             cout << "[" << count << "] " << g.get_name() << "(" << g.get_age() << ", " << g.get_color() << ")" << endl;
             count++;
