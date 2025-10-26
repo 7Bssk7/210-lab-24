@@ -1,3 +1,5 @@
+// COMSC-210 | Lab 23 | Arkhip Finski
+// IDE used: Visual Studio
 #include <iostream>
 #include <fstream>
 #include <iomanip>
@@ -5,6 +7,7 @@
 #include "Goat.h"
 using namespace std;
 
+//Constants for array sizes and goat age range 
 const int SZ_NAMES = 200, SZ_COLORS = 25, MAX_AGE = 20;
 
 int select_goat(list<Goat>& trip);
@@ -14,7 +17,7 @@ void display_trip(list<Goat> trip);
 int main_menu();
 
 int main() {
-    srand(time(0));
+    srand(time(0)); // seed random number generator 
     bool again = 1;
 
     // read & populate arrays for names and colors
@@ -28,24 +31,27 @@ int main() {
     i = 0;
     while (fin1 >> colors[i++]);
     fin1.close();
+
+    //List to store Goat objects
     list<Goat> t;
 
+    //Main menu loop
     int choice = main_menu();
     while((again)){
-        if(choice == 1){
+        if(choice == 1){ // checks if choice is 1
             add_goat(t, names, colors);
         }
-        else if(choice == 2){
+        else if(choice == 2){ // checks if choice is 2
             delete_goat(t);
         }
-        else if(choice == 3){
+        else if(choice == 3){ // checks if choice is 3
             display_trip(t);
         }
-        else{
+        else{ // checks if choice is 4
             again = 0;
         }
-        if(again){
-            choice = main_menu();
+        if(again){ 
+            choice = main_menu(); // Outputs menu again if user didn't choose 4
         }
 
     }
