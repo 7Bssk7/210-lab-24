@@ -3,7 +3,6 @@
 #include <iostream>
 #include <fstream>
 #include <iomanip>
-#include <list>
 #include <set>
 #include "Goat.h"
 using namespace std;
@@ -11,10 +10,10 @@ using namespace std;
 //Constants for array sizes and goat age range 
 const int SZ_NAMES = 200, SZ_COLORS = 25, MAX_AGE = 20;
 
-int select_goat(list<Goat>& trip);
-void delete_goat(list<Goat> &trip);
-void add_goat(list<Goat> &trip, string [], string []);
-void display_trip(list<Goat> trip);
+int select_goat(set<Goat>& trip);
+void delete_goat(set<Goat> &trip);
+void add_goat(set<Goat> &trip, string [], string []);
+void display_trip(set<Goat> trip);
 int main_menu();
 
 int main() {
@@ -34,7 +33,7 @@ int main() {
     fin1.close();
 
     //List to store Goat objects
-    list<Goat> t;
+    set<Goat> t;
 
     //Main menu loop
     int choice = main_menu();
@@ -95,7 +94,7 @@ int main_menu(){
 // add_goat() creates a new Goat with random (names,color and age) and adds it to the list
 // arguments: list of Goat objects (by reference), arrays of names and colors
 // returns: none
-void add_goat(list<Goat>& trip, string n[], string c[]){
+void add_goat(set<Goat>& trip, string n[], string c[]){
     // Creates goat with random name,age and color 
     Goat temp(n[rand() % SZ_NAMES], (rand() % (MAX_AGE+1)),c[rand() % SZ_COLORS]);
     // Outputs what was added to the list
@@ -103,14 +102,14 @@ void add_goat(list<Goat>& trip, string n[], string c[]){
     cout << endl;
 
     // Adds goat to the list
-    trip.push_back(temp); 
+    trip.insert(temp); 
 
 }
 
 // delete_goat() deletes a goat from the list based on user selection
 // arguments: list of Goat objects (by reference)
 // returns: none
-void delete_goat(list<Goat>& trip){
+void delete_goat(set<Goat>& trip){
     if(trip.empty()){ // checks if list is empty
         cout << "Sorry, the list is empty." << endl;
         cout << endl;
@@ -135,7 +134,7 @@ void delete_goat(list<Goat>& trip){
 // select_goat() asks user to choose a goat from the list
 // arguments: list of Goat objects (by reference)
 // returns: integer index of selected goat in the list
-int select_goat(list<Goat>& trip){
+int select_goat(set<Goat>& trip){
     int choice; 
     // Outputs current list
     display_trip(trip);
@@ -160,7 +159,7 @@ int select_goat(list<Goat>& trip){
 // display_trip() outputs all goats in the list
 // arguments: list of Goat objects (by value)
 // returns: none
-void display_trip(list<Goat> trip){
+void display_trip(set<Goat> trip){
     int count = 1; // counts number of items in the list
     if(trip.empty()){
         cout << "Sorry, the list is empty." << endl;
