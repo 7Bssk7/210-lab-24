@@ -55,6 +55,7 @@ int main() {
         }
 
     }
+    cout << "Bye!" << endl;
 
 
     return 0;
@@ -109,17 +110,22 @@ void add_goat(list<Goat>& trip, string n[], string c[]){
 // arguments: list of Goat objects (by reference)
 // returns: none
 void delete_goat(list<Goat>& trip){
-    if(trip.empty()){
+    if(trip.empty()){ // checks if list is empty
         cout << "Sorry, the list is empty." << endl;
         cout << endl;
         return;
     }
+
+    // Asks user to select goat to delete
     int c = select_goat(trip);
 
+    // Advance iterator to selected goat
     auto it = trip.begin();
     advance(it, c-1);
+    // Deletes selected goat from the list
     trip.erase(it);
 
+    // Outputs updates list
     cout << "After you have deleted the goat from the list" << endl;
     display_trip(trip);
 
@@ -129,12 +135,15 @@ void delete_goat(list<Goat>& trip){
 // arguments: list of Goat objects (by reference)
 // returns: integer index of selected goat in the list
 int select_goat(list<Goat>& trip){
-    int choice;
+    int choice; 
+    // Outputs current list
     display_trip(trip);
+    // Asks user to select the goat they want to delete
     cout << "Which of the goats would you like to remove?" << endl;
     cout << "Choice --> ";
     cin >> choice;
     cout << endl;
+    // Validates input
     while((choice < 1) || (choice > trip.size())){
         cout << "Invalid choice, please select again" << endl;
         display_trip(trip);
@@ -151,11 +160,11 @@ int select_goat(list<Goat>& trip){
 // arguments: list of Goat objects (by value)
 // returns: none
 void display_trip(list<Goat> trip){
-    int count = 1;
+    int count = 1; // counts number of items in the list
     if(trip.empty()){
         cout << "Sorry, the list is empty." << endl;
     }
-    else{
+    else{ // Outputs every goat in the list with index 
         cout << "Here is the list of all goats from the trip:" << endl;
         for(auto g : trip){
             cout << "[" << count << "] " << g.get_name() << "(" << g.get_age() << ", " << g.get_color() << ")" << endl;
