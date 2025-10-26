@@ -29,9 +29,19 @@ int main() {
     while (fin1 >> colors[i++]);
     fin1.close();
 
+    int choice = main_menu();
+    while((choice != 4)){
+        if(choice == 1){
 
+        }
+        else if(choice == 2){
 
+        }
+        else{
+            
+        }
 
+    }
 
 
     return 0;
