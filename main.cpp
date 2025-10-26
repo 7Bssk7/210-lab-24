@@ -37,6 +37,7 @@ int main() {
         }
         else if(choice == 2){
 
+
         }
         else{
             display_trip(t);
@@ -82,12 +83,16 @@ void add_goat(list<Goat>& trip, string n[], string c[]){
 
 void display_trip(list<Goat> trip){
     int count = 1;
-    cout << "Here is the list of all goats from the trip:" << endl;
-    for(auto g : trip){
-        cout << "[" << count << "] " << g.get_name() << "(" << g.get_age() << ", " << g.get_color() << ")" << endl;
-        count++;
+    if(trip.empty()){
+        cout << "Sorry, the list is empty." << endl;
+    }
+    else{
+        cout << "Here is the list of all goats from the trip:" << endl;
+        for(auto g : trip){
+            cout << "[" << count << "] " << g.get_name() << "(" << g.get_age() << ", " << g.get_color() << ")" << endl;
+            count++;
+        }
     }
     cout << endl;
-
 }
 
