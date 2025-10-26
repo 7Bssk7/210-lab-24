@@ -28,17 +28,18 @@ int main() {
     i = 0;
     while (fin1 >> colors[i++]);
     fin1.close();
+    list<Goat> t;
 
     int choice = main_menu();
     while((choice != 4)){
         if(choice == 1){
-
+            add_goat(t, names, colors);
         }
         else if(choice == 2){
 
         }
         else{
-            
+
         }
 
     }
@@ -69,4 +70,11 @@ int main_menu(){
 
     return c;
 }
+
+void add_goat(list<Goat>& trip, string n[], string c[]){
+    Goat temp(n[rand() % SZ_NAMES-1], (rand() % MAX_AGE),c[rand() % SZ_COLORS]);
+    trip.push_back(temp);
+
+}
+
 
