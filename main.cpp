@@ -90,22 +90,6 @@ void delete_goat(list<Goat>& trip){
     }
     int c = select_goat(trip);
 
-    /*
-    display_trip(trip);
-    cout << "Which of the goats would you like to remove?" << endl;
-    cout << "Choice --> ";
-    cin >> c;
-    cout << endl;
-    while((c < 1) || (c > trip.size())){
-        cout << "Invalid choice, please select again" << endl;
-        display_trip(trip);
-        cout << "Which of the goats would you like to remove?" << endl;
-        cout << "Choice --> ";
-        cin >> c;
-        cout << endl;
-    }
-    */
-
     auto it = trip.begin();
     advance(it, c-1);
     trip.erase(it);
