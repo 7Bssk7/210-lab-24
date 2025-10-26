@@ -96,6 +96,12 @@ void delete_goat(list<Goat>& trip){
         cout << endl;
     }
 
+    auto it = trip.begin();
+    advance(it, c-1);
+    trip.erase(it);
+
+    cout << "After you deleted the goat:" << endl;
+    display_trip(trip);
 }
 
 void display_trip(list<Goat> trip){
