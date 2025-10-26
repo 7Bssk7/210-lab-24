@@ -75,8 +75,8 @@ int main_menu(){
 }
 
 void add_goat(list<Goat>& trip, string n[], string c[]){
-    Goat temp(n[rand() % SZ_NAMES], (rand() % MAX_AGE),c[rand() % SZ_COLORS]);
-    cout << "You added:" << temp.get_name() << "(" << temp.get_age() << ", " << temp.get_color() << ")" << endl;
+    Goat temp(n[rand() % SZ_NAMES], (rand() % (MAX_AGE+1)),c[rand() % SZ_COLORS]);
+    cout << "You added: " << temp.get_name() << "(" << temp.get_age() << ", " << temp.get_color() << ")" << endl;
     cout << endl;
     trip.push_back(temp);
 
