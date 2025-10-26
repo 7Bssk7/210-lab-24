@@ -7,7 +7,7 @@ using namespace std;
 
 const int SZ_NAMES = 200, SZ_COLORS = 25, MAX_AGE = 20;
 
-int select_goat(list<Goat> trip);
+int select_goat(list<Goat>& trip);
 void delete_goat(list<Goat> &trip);
 void add_goat(list<Goat> &trip, string [], string []);
 void display_trip(list<Goat> trip);
@@ -15,7 +15,7 @@ int main_menu();
 
 int main() {
     srand(time(0));
-    bool again;
+    bool again = 1;
 
     // read & populate arrays for names and colors
     ifstream fin("names.txt");
@@ -31,17 +31,22 @@ int main() {
     list<Goat> t;
 
     int choice = main_menu();
-    while((choice != 4)){
+    while((again)){
         if(choice == 1){
             add_goat(t, names, colors);
         }
         else if(choice == 2){
             delete_goat(t);
         }
-        else{
+        else if(choice == 3){
             display_trip(t);
         }
-        choice = main_menu();
+        else{
+            again = 0;
+        }
+        if(again){
+            choice = main_menu();
+        }
 
     }
 
@@ -99,7 +104,7 @@ void delete_goat(list<Goat>& trip){
 
 }
 
-int select_goat(list<Goat> trip){
+int select_goat(list<Goat>& trip){
     int choice;
     display_trip(trip);
     cout << "Which of the goats would you like to remove?" << endl;
