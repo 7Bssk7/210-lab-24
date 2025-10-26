@@ -39,7 +39,7 @@ int main() {
 
         }
         else{
-
+            display_trip(t);
         }
         choice = main_menu();
 
@@ -58,6 +58,7 @@ int main_menu(){
     cout << "[4] Quit" << endl;
     cout << "Choice -->";
     cin >> c;
+    cout << endl;
     while((c < 1) || (c > 4)){
         cout << "Ivalid choice, please select again" << endl;
         cout << "*** GOAT MANAGER 3001 ***" << endl;
@@ -67,6 +68,7 @@ int main_menu(){
         cout << "[4] Quit" << endl;
         cout << "Choice -->";
         cin >> c;
+        cout << endl;
     }
 
     return c;
@@ -78,4 +80,14 @@ void add_goat(list<Goat>& trip, string n[], string c[]){
 
 }
 
+void display_trip(list<Goat> trip){
+    int count = 1;
+    cout << "Here is the list of all goats from the trip:" << endl;
+    for(auto g : trip){
+        cout << "[" << count << "] " << g.get_name() << "(" << g.get_age() << ", " << g.get_color() << ")" << endl;
+        count++;
+    }
+    cout << endl;
+
+}
 
