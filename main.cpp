@@ -36,8 +36,7 @@ int main() {
             add_goat(t, names, colors);
         }
         else if(choice == 2){
-
-
+            delete_goat(t);
         }
         else{
             display_trip(t);
@@ -57,7 +56,7 @@ int main_menu(){
     cout << "[2] Delete a goat" << endl;
     cout << "[3] List goats" << endl;
     cout << "[4] Quit" << endl;
-    cout << "Choice -->";
+    cout << "Choice --> ";
     cin >> c;
     cout << endl;
     while((c < 1) || (c > 4)){
@@ -67,7 +66,7 @@ int main_menu(){
         cout << "[2] Delete a goat" << endl;
         cout << "[3] List goats" << endl;
         cout << "[4] Quit" << endl;
-        cout << "Choice -->";
+        cout << "Choice --> ";
         cin >> c;
         cout << endl;
     }
@@ -78,6 +77,24 @@ int main_menu(){
 void add_goat(list<Goat>& trip, string n[], string c[]){
     Goat temp(n[rand() % SZ_NAMES], (rand() % MAX_AGE),c[rand() % SZ_COLORS]);
     trip.push_back(temp);
+
+}
+
+void delete_goat(list<Goat>& trip){
+    int c;
+    display_trip(trip);
+    cout << "Which of the goats would you like to remove?" << endl;
+    cout << "Choice --> ";
+    cin >> c;
+    cout << endl;
+    while((c < 1) || (c > trip.size())){
+        cout << "Ivalid choice, please select again" << endl;
+        display_trip(trip);
+        cout << "Which of the goats would you like to remove?" << endl;
+        cout << "Choice --> ";
+        cin >> c;
+        cout << endl;
+    }
 
 }
 
