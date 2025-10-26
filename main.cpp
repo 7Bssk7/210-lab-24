@@ -81,6 +81,11 @@ void add_goat(list<Goat>& trip, string n[], string c[]){
 }
 
 void delete_goat(list<Goat>& trip){
+    if(trip.empty()){
+        cout << "Sorry, the list is empty." << endl;
+        cout << endl;
+        return;
+    }
     int c;
     display_trip(trip);
     cout << "Which of the goats would you like to remove?" << endl;
@@ -102,7 +107,7 @@ void delete_goat(list<Goat>& trip){
 
     cout << "After you have deleted the goat from the list" << endl;
     display_trip(trip);
-    
+
 }
 
 void display_trip(list<Goat> trip){
