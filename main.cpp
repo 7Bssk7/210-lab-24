@@ -99,6 +99,9 @@ void add_goat(list<Goat>& trip, string n[], string c[]){
 
 }
 
+// delete_goat() deletes a goat from the list based on user selection
+// arguments: list of Goat objects (by reference)
+// returns: none
 void delete_goat(list<Goat>& trip){
     if(trip.empty()){
         cout << "Sorry, the list is empty." << endl;
@@ -116,6 +119,9 @@ void delete_goat(list<Goat>& trip){
 
 }
 
+// select_goat() asks user to choose a goat from the list
+// arguments: list of Goat objects (by reference)
+// returns: integer index of selected goat in the list
 int select_goat(list<Goat>& trip){
     int choice;
     display_trip(trip);
@@ -135,6 +141,9 @@ int select_goat(list<Goat>& trip){
     return choice;
 }
 
+// display_trip() outputs all goats in the list
+// arguments: list of Goat objects (by value)
+// returns: none
 void display_trip(list<Goat> trip){
     int count = 1;
     if(trip.empty()){
