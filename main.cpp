@@ -60,7 +60,7 @@ int main_menu(){
     cin >> c;
     cout << endl;
     while((c < 1) || (c > 4)){
-        cout << "Ivalid choice, please select again" << endl;
+        cout << "Invalid choice, please select again" << endl;
         cout << "*** GOAT MANAGER 3001 ***" << endl;
         cout << "[1] Add a goat"<< endl;
         cout << "[2] Delete a goat" << endl;
@@ -76,6 +76,8 @@ int main_menu(){
 
 void add_goat(list<Goat>& trip, string n[], string c[]){
     Goat temp(n[rand() % SZ_NAMES], (rand() % MAX_AGE),c[rand() % SZ_COLORS]);
+    cout << "You added:" << temp.get_name() << "(" << temp.get_age() << ", " << temp.get_color() << ")" << endl;
+    cout << endl;
     trip.push_back(temp);
 
 }
@@ -93,7 +95,7 @@ void delete_goat(list<Goat>& trip){
     cin >> c;
     cout << endl;
     while((c < 1) || (c > trip.size())){
-        cout << "Ivalid choice, please select again" << endl;
+        cout << "Invalid choice, please select again" << endl;
         display_trip(trip);
         cout << "Which of the goats would you like to remove?" << endl;
         cout << "Choice --> ";
