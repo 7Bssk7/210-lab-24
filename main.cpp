@@ -4,6 +4,7 @@
 #include <fstream>
 #include <iomanip>
 #include <list>
+#include <set>
 #include "Goat.h"
 using namespace std;
 
