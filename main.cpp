@@ -64,7 +64,9 @@ int main() {
 // arguments: none
 // returns: integer representing user's choice
 int main_menu(){
-    int c;
+    int c; // int for user's choice 
+
+    // Outputs main menu and validates the input
     cout << "*** GOAT MANAGER 3001 ***" << endl;
     cout << "[1] Add a goat"<< endl;
     cout << "[2] Delete a goat" << endl;
@@ -92,10 +94,14 @@ int main_menu(){
 // arguments: list of Goat objects (by reference), arrays of names and colors
 // returns: none
 void add_goat(list<Goat>& trip, string n[], string c[]){
+    // Creates goat with random name,age and color 
     Goat temp(n[rand() % SZ_NAMES], (rand() % (MAX_AGE+1)),c[rand() % SZ_COLORS]);
+    // Outputs what was added to the list
     cout << "You added: " << temp.get_name() << "(" << temp.get_age() << ", " << temp.get_color() << ")" << endl;
     cout << endl;
-    trip.push_back(temp);
+
+    // Adds goat to the list
+    trip.push_back(temp); 
 
 }
 
